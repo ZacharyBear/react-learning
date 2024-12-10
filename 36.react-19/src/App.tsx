@@ -1,10 +1,7 @@
-import { Link, LinkProps, Outlet } from 'react-router'
-import './App.css'
+import { Link, Outlet } from 'react-router'
+import '@/App.css'
+import routes from '@/config/route'
 
-const paths: LinkProps[] = [
-  { to: '/', children: 'Home' },
-  { to: '/about', children: 'About' },
-]
 
 function App() {
 
@@ -12,7 +9,7 @@ function App() {
     <>
       {/* Menu */}
       <ul className='flex gap-1 px-6 py-1'>
-        {paths.map(path => (
+        {routes.map(path => (
           <li key={path.to as string}>
             <Link className='block px-4 py-3 border-transparent border-solid border rounded-lg
           hover:border-[#535bf2]' to={path.to}>{path.children}</Link>
