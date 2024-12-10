@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       {/* Menu */}
-      <ul className='flex gap-1 p-1'>
+      <ul className='flex gap-1 px-6 py-1'>
         {paths.map(path => (
           <li key={path.to as string}>
             <Link className='block px-4 py-3 border-transparent border-solid border rounded-lg
@@ -19,10 +19,12 @@ function App() {
           </li>
         ))}
       </ul>
-      
-      <hr className='mb-4'/>
 
-      <Outlet />
+      <hr/>
+
+      <div className='mt-16 mx-auto w-[60rem]'>
+        <Outlet />
+      </div>
     </>
   )
 }
