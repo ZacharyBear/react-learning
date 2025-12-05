@@ -39,7 +39,8 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+button,
+input {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -49,13 +50,18 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+  &:hover {
+    border-color: #646cff;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  &:disabled {
+    color: gray;
+    border-color: gray;
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -66,7 +72,8 @@ button:focus-visible {
   a:hover {
     color: #747bff;
   }
-  button {
+  button,
+  input {
     background-color: #f9f9f9;
   }
 }
