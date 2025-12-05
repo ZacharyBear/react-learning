@@ -9,7 +9,6 @@ const routes: (LinkProps & RouteProps)[] = [
   { to: "/", path: "/", children: "Home", element: <Home /> },
   { to: "/about", path: "/about", children: "About", element: <About /> },
   { to: "/actions", path: "/actions", children: "Actions", element: <Actions /> },
-  { to: "/actions", path: "/actions", children: "Actions", element: <Actions /> },
 ];
 
 export default routes;
