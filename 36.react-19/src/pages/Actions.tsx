@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useActionState, useState, useTransition } from "react";
 import { updateName } from "@/services/user";
 import DemoBox from "@/components/DemoBox";
+import { useFormStatus } from "react-dom";
 
 const Actions = () => {
   return (
@@ -19,6 +20,12 @@ const Actions = () => {
       <p>Handle pending and error with useActionState:</p>
       <DemoBox>
         <UpdateNameWithActionState />
+      </DemoBox>
+
+      <h4></h4>
+      <p>Use useFormStatus() to get parent form's status:</p>
+      <DemoBox>
+        <UseFormStatus />
       </DemoBox>
     </div>
   );
@@ -104,6 +111,30 @@ const ChangeName = ({ name, setName }: { name: string; setName: Dispatch<SetStat
       </button>
       {error && <p className="text-red-400">{error}</p>}
     </form>
+  );
+};
+
+const UseFormStatus = () => {
+  const handler = async (data: FormData) => {
+    await new Promise((res) => {
+      setTimeout(res, 2000 * Math.random());
+    });
+  };
+
+  return (
+    <form action={handler}>
+      <Submitter />
+    </form>
+  );
+};
+
+const Submitter = () => {
+  const formStatus = useFormStatus(); // provides parent form's status
+
+  return (
+    <button type="submit" className="cursor-pointer" disabled={formStatus.pending}>
+      {formStatus.pending ? "Submitting" : "Submit"}
+    </button>
   );
 };
 
